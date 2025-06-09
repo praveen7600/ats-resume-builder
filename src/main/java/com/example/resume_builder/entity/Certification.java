@@ -1,5 +1,6 @@
 package com.example.resume_builder.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,6 +18,8 @@ public class Certification {
     private String expiryDate;
     @ManyToOne
     @JoinColumn(name = "resume_id")
+    @JsonBackReference
+
     private Resume resume;
 
     // Getters and setters
