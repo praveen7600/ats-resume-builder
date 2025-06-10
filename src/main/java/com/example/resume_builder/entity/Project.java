@@ -2,6 +2,7 @@ package com.example.resume_builder.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
@@ -16,7 +17,9 @@ public class Project {
 
     @Lob
     @Column(columnDefinition = "TEXT")
+    @NotBlank(message = "Description is required")
     private String description;
+
     private String technology;
 
     @ManyToOne

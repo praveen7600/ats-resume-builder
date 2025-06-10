@@ -2,6 +2,7 @@ package com.example.resume_builder.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
@@ -12,7 +13,9 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Skill name is required")
     private String name;
+
     private String level; // Beginner, Intermediate, Advanced
 
     @ManyToOne
